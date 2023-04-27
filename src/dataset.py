@@ -201,6 +201,20 @@ class DatasetBuilder:
             train = train.take(take)
             val = val.take(take)
         return train, val
+    
+    def quick(self, interleave=True, take=None):
+        """
+        Like `auto` but only English gutenberg and English MC4
+        """
+        self.add_mc4(["en"])
+        self.add_gutenberg_english()
+        train, val = self.build(interleave)
+
+        # if take is not None, and train is not a list, then take a subset of the dataset
+        if take is not None and not isinstance(train, list):
+            train = train.take(take)
+            val = val.take(take)
+        return train, val
 
     def get_errors(self):
         return self.errors
