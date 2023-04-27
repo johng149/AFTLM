@@ -1,0 +1,17 @@
+
+# ignore `lightning_logs` dir
+lightning_logs/
+
+# ignore __pycache__ dirs
+__pycache__/
+
+# ignore .ckpt files since they may be large
+*.ckpt
+
+tmp.md
+
+# ignore data dir
+data/
+
+# ignore procesed data dir
+processed/
